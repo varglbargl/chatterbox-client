@@ -2,19 +2,49 @@ body {
     background: #eee;
     text-align: center;
     padding: 0 25px;
+    font-family: Arial, sans-serif;
+    height: 600px;
 }
 
 #main {
-    width: 500px;
+    width: 800px;
     margin: auto;
     text-align: left;
     background: white;
     padding: 50px 60px;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
+    height: 100%;
 }
 
 #main h1 {
     margin-top: 0;
     font-size: 35px;
+    position: relative;
+}
+
+.chatbox {
+    width: 70%;
+    height: 400px;
+    margin: 0 auto;
+    background-color: #DEF;
+    padding: 20px;
+    vertical-align: top;
+    float:left;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.chatrooms {
+    width: 15%;
+    height: 400px;
+    background-color: #FFF;
+    padding: 20px;
+    float:right;
+    vertical-align: top;
+    position: relative;
+}
+
+.roomname {
+    cursor: pointer;
 }
