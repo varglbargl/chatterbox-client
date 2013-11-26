@@ -81,6 +81,4 @@ $(document).ready(function (){
   setInterval(fetch, 1000);
   fullGet();
 
-  console.log(window._userName);
-
 });

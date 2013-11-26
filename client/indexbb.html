@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>backbone chatterbox</title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- external javascript -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/underscore-min.js"></script> <!-- How do you make a library dependent on another and not include it?  Some people, I swear. -->
+    <script src="scripts/backbone-min.js"></script>
+
+    
+    <!-- internal javascript -->
+    <script src="scripts/config.js"></script>
+    <script src="scripts/app-with-backbone.js"></script>
+  </head>
+  <body>
+
+    <div id="main">
+      <h1>Chat-Client</h1>
+      <button class="submit">submit</button>
+      <input class="textbox"></input>
+      <div class="chatbox">
+      </div>
+      <div class="chatrooms">
+        <h3>Chat Rooms</h3>
+      </div>
+    </div>
+
+  </body>
+</html>
