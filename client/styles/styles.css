@@ -48,3 +48,7 @@ body {
 .roomname {
     cursor: pointer;
 }
+
+.textbox {
+    width: 70%;
+}
