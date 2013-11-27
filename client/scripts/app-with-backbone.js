@@ -4,12 +4,12 @@ var lastId = "";
 var chatRooms = [];
 var currentRoom = "all";
 var security = new RegExp("[a-zA-Z0-9_,\s \=\.\@\#\?\!\:\(\)\'\"\-]*");
-var username;
+var username = "";
 
-var getUsername = function(variable){
+var getUsername = function(){
   var query = window.location.search;
-  var vars = query.split("=");
-  username = vars[vars.length-1];
+  var urlSearch = query.split("=");
+  username = urlSearch[urlSearch.length-1];
 };
 
 var Message = Backbone.Model.extend({
@@ -17,19 +17,6 @@ var Message = Backbone.Model.extend({
 });
 
 var Messages = Backbone.Collection.extend({
-  // send: function (input) {
-  //   var that = this;
-  //   var message = new Message();
-  //   message.save(input, {
-  //     success: function (e) {
-  //       that.trigger("message:send");
-  //       console.log('chatterbox: Message sent');
-  //     },
-  //     error: function (e) {
-  //       console.error('chatterbox: Failed to send message\nERROR: ' + e);
-  //     }
-  //   });
-  // }
   model: Message
 });
 
@@ -90,9 +77,10 @@ var NewMessageView = Backbone.View.extend({
 
     this.collection.on("add", this.updateChat, this);
     this.collection.on("add", this.clearInput, this);
-
-    var add = $.proxy(this.sendMessage, this);
-    this.$("button").click(add);
+  },
+  events: {
+    "click button": "sendMessage"
+    //"touch fuzzy": "getDizzy"
   },
   sendMessage: function () {
     this.collection.create({
@@ -118,6 +106,7 @@ $(document).ready(function (){
   var message = new Messages();
   new NewMessageView({el: $(".messagebox"), collection: message});
 
+//});
 
 
 
@@ -126,7 +115,18 @@ $(document).ready(function (){
 
 
 
-  // shoutbot
+
+
+
+
+
+
+
+
+
+
+
+  // secret shoutbot code
 
   var yo = ["What's up", "Keep walking", "Go to sleep", "Never change", "You're a star", "Have some of my fries", "Keep up the pace", "Congratulations", "How's it going", "Get a job", "Keep it real", "You can do it", "We're all very proud of you", "See ya later", "Give 'em hell", "You're my number one customer", "Outa my way"];
   var clam = ["Chuggin'", "Super", "Double", "Burger", "Danger", "Bunch a", "Hot", "Helicopter", "Horse", "Tiny", "Butter", "Slappy", "Dunder", "Slurpee", "Tuba", "Soup", "Dungeon", "Power", "Shrimp", "Star", "Lumpy", "Laundry", "Frowny", "Electro", "Flamingo", "Lumber", "Frumpy", "Monster", "Tiger", "Moon", "Oyster", "Clam", "Thunder", "Blunder", "Onion", "Chowder", "Shakey", "Math", "Dino", "Disco", "Jazz", "Motor", "Junior", "Piano", "Potato"];
