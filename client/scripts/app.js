@@ -9,7 +9,7 @@ $(document).ready(function (){
   $(".submit").click(function () {
     $.ajax({
       // always use this url
-      url: 'https://api.parse.com/1/classes/chatterbox',
+      url: 'http://127.0.0.1:8080',
       data: JSON.stringify({username: "null", text: $(".textbox").val(), roomname: currentRoom}),
       type: "POST",
       contentType: 'application/json',
@@ -26,7 +26,7 @@ $(document).ready(function (){
   });
 
   var fullGet = function(){
-    $.get( "https://api.parse.com/1/classes/chatterbox?order=-createdAt", function(data) {
+    $.get( "http://127.0.0.1:8080", function(data) {
       for (var i = 0; i < data.results.length; i++) {
         var text = security.exec(data.results[i].text);
         var name = security.exec(data.results[i].username);
@@ -53,7 +53,7 @@ $(document).ready(function (){
 
   var fetch = function () {
     $.ajax({
-      url: "https://api.parse.com/1/classes/chatterbox?order=-createdAt",
+      url: "http://127.0.0.1:8080",
       type: "GET",
       contentType: "application/json",
       success: function(data) {
